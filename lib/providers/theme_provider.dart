@@ -7,6 +7,7 @@ class ThemeProvider extends ChangeNotifier {
 
   set thememode(String newMode) {
     _thememode = newMode;
+    print("New Theme = $_thememode");
     notifyListeners();
   }
 }
