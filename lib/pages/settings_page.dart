@@ -25,10 +25,9 @@ class _SettingsPageState extends State<SettingsPage> {
             title: const Text("Choose Theme"),
             content: SingleChildScrollView(
               child: Column(children: [
-                
                 RadioListTile(
                   title: const Text("Light"),
-                  value: "Light",
+                  value: radioOptions[0],
                   groupValue: radioGroupValue,
                   onChanged: (value) {
                     setState(() {
@@ -39,7 +38,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 RadioListTile(
                   title: const Text("Dark"),
-                  value: radioOptions[2],
+                  value: radioOptions[1],
                   groupValue: radioGroupValue,
                   onChanged: (value) {
                     setState(() {
