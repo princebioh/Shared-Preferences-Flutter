@@ -16,7 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    _showTheDialog() {
+    showTheDialog() {
       return showDialog(
         context: context,
         builder: (context) {
@@ -101,7 +101,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 leading: const Icon(Icons.brightness_6),
                 title: const Text("Theme"),
                 subtitle: Text(value.thememode),
-                onTap: _showTheDialog,
+                onTap: showTheDialog,
               );
             },
           ),
