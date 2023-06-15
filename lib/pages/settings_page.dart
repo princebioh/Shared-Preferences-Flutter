@@ -10,8 +10,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  List<String> radioOptions = ["System default", "Light", "Dark"];
-  String? radioGroupValue = "System default";
+  List<String> radioOptions = ["Light", "Dark"];
+  String? radioGroupValue = "Light";
   String chosenTheme = "";
 
   @override
@@ -25,17 +25,7 @@ class _SettingsPageState extends State<SettingsPage> {
             title: const Text("Choose Theme"),
             content: SingleChildScrollView(
               child: Column(children: [
-                RadioListTile(
-                  title: const Text("System default"),
-                  value: radioOptions[0],
-                  groupValue: radioGroupValue,
-                  onChanged: (value) {
-                    setState(() {
-                      radioGroupValue = value;
-                      chosenTheme = value!;
-                    });
-                  },
-                ),
+                
                 RadioListTile(
                   title: const Text("Light"),
                   value: "Light",
