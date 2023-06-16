@@ -11,6 +11,8 @@ void main(List<String> args) {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+ 
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -18,11 +20,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ThemeProvider()),
       ],
       builder: (context, child) {
-        String userTheme = context.watch<ThemeProvider>().thememode;
-        return MaterialApp(
-          theme: userTheme == "Dark" ? darkTheme : lightTheme,
-          initialRoute: Routes.homePage,
-          onGenerateRoute: Routes.routeManager,
+        return Consumer<ThemeProvider>(
+          builder: (context, value, child) {
+            return MaterialApp(
+              theme: value.thememode == "Dark" ? darkTheme : lightTheme,
+              initialRoute: Routes.homePage,
+              onGenerateRoute: Routes.routeManager,
+            );
+          },
         );
       },
     );

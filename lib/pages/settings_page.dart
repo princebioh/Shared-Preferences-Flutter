@@ -32,7 +32,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   onChanged: (value) {
                     setState(() {
                       radioGroupValue = value;
-                      chosenTheme = value!;
+                      context.read<ThemeProvider>().thememode = value!;
+                      Navigator.pop(context);
                     });
                   },
                 ),
@@ -43,33 +44,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   onChanged: (value) {
                     setState(() {
                       radioGroupValue = value;
-                      chosenTheme = value!;
+                      context.read<ThemeProvider>().thememode = value!;
+                      Navigator.pop(context);
                     });
                   },
                 ),
               ]),
             ),
-            actions: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text("Cancel"),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      context.read<ThemeProvider>().thememode = chosenTheme;
-
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text("Ok"),
-                  ),
-                ],
-              )
-            ],
           );
         },
       );
